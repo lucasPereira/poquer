@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.iucas.poquer.AgrupadorDeCartasPorValor;
 import br.iucas.poquer.Carta;
 import br.iucas.poquer.figuracao.FiguracaoCarta;
 

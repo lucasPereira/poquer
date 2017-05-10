@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import br.iucas.poquer.testes.AgrupadorDeCartasPorValor;
-import br.iucas.poquer.testes.SeletorDeCartasDeDesempate;
-
 public class VerificadorDePar implements VerificadorDeJogo {
 
 	public VerificadorDePar() {}

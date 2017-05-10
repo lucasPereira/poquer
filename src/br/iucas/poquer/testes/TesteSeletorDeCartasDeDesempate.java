@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.iucas.poquer.Carta;
+import br.iucas.poquer.SeletorDeCartasDeDesempate;
 import br.iucas.poquer.figuracao.FiguracaoCarta;
 
 public class TesteSeletorDeCartasDeDesempate {

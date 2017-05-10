@@ -1,9 +1,6 @@
-package br.iucas.poquer.testes;
+package br.iucas.poquer;
 
 import java.util.List;
-
-import br.iucas.poquer.Carta;
-import br.iucas.poquer.OrdenadorDeCartasSuperiorDecrescente;
 
 public class SeletorDeCartasDeDesempate {
 

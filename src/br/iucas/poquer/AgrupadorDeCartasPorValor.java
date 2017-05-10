@@ -1,13 +1,9 @@
-package br.iucas.poquer.testes;
+package br.iucas.poquer;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import br.iucas.poquer.Carta;
-import br.iucas.poquer.OrdenadorDeListaDeCartasSuperiorDecrescente;
-import br.iucas.poquer.Valor;
 
 public class AgrupadorDeCartasPorValor {
 

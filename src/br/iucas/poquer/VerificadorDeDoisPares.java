@@ -5,9 +5,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-import br.iucas.poquer.testes.AgrupadorDeCartasPorValor;
-import br.iucas.poquer.testes.SeletorDeCartasDeDesempate;
-
 public class VerificadorDeDoisPares implements VerificadorDeJogo {
 
 	@Override

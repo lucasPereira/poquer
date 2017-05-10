@@ -8,10 +8,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class VerificadorDePar {
+public class VerificadorDePar implements VerificadorDeJogo {
 
 	public VerificadorDePar() {}
 
+	@Override
 	public VerificacaoDeJogo verificar(List<Carta> cartas) {
 		cartas = new ArrayList<>(cartas);
 		Map<Valor, List<Carta>> agrupamentosPorValor = criarAgrupamentosPorValor(cartas);
@@ -28,9 +29,9 @@ public class VerificadorDePar {
 			cartas.remove(parItem2);
 			new OrdenadorSuperiorDecrescente().ordenar(cartas);
 			Integer contador = 0;
-			Iterator<Carta> iteradorDeCartasDeDesempate = cartas.iterator();
-			while (contador < 3 && iteradorDeCartasDeDesempate.hasNext()) {
-				jogo.add(iteradorDeCartasDeDesempate.next());
+			Iterator<Carta> desempate = cartas.iterator();
+			while (contador < 3 && desempate.hasNext()) {
+				jogo.add(desempate.next());
 				contador++;
 			}
 			return new VerificacaoDeJogo(jogo);

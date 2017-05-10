@@ -10,12 +10,13 @@ import org.junit.Test;
 
 import br.iucas.poquer.Carta;
 import br.iucas.poquer.VerificacaoDeJogo;
+import br.iucas.poquer.VerificadorDeJogo;
 import br.iucas.poquer.VerificadorDePar;
 import br.iucas.poquer.figuracao.FiguracaoCarta;
 
 public class TesteVerificadorDePar {
 
-	private VerificadorDePar verificadorDePar;
+	private VerificadorDeJogo verificadorDePar;
 	private Carta asEspadas;
 	private Carta asCopas;
 	private Carta asPaus;
@@ -49,7 +50,7 @@ public class TesteVerificadorDePar {
 		VerificacaoDeJogo verificacao = verificadorDePar.verificar(cartas);
 		List<Carta> jogo = Arrays.asList(asEspadas, asCopas);
 		assertTrue(verificacao.valido());
-		assertEquals(jogo, verificacao.jogo());
+		assertEquals(jogo, verificacao.obterJogo());
 	}
 
 	@Test
@@ -58,7 +59,7 @@ public class TesteVerificadorDePar {
 		VerificacaoDeJogo verificacao = verificadorDePar.verificar(cartas);
 		List<Carta> jogo = Arrays.asList();
 		assertFalse(verificacao.valido());
-		assertEquals(jogo, verificacao.jogo());
+		assertEquals(jogo, verificacao.obterJogo());
 	}
 
 	@Test
@@ -67,7 +68,7 @@ public class TesteVerificadorDePar {
 		VerificacaoDeJogo verificacao = verificadorDePar.verificar(cartas);
 		List<Carta> jogo = Arrays.asList(asEspadas, asCopas, reiEspadas, reiCopas);
 		assertTrue(verificacao.valido());
-		assertEquals(jogo, verificacao.jogo());
+		assertEquals(jogo, verificacao.obterJogo());
 	}
 
 	@Test
@@ -76,7 +77,7 @@ public class TesteVerificadorDePar {
 		VerificacaoDeJogo verificacao = verificadorDePar.verificar(cartas);
 		List<Carta> jogo = Arrays.asList(reiEspadas, reiCopas, asPaus, dezPaus, oitoPaus);
 		assertTrue(verificacao.valido());
-		assertEquals(jogo, verificacao.jogo());
+		assertEquals(jogo, verificacao.obterJogo());
 	}
 
 	@Test
@@ -85,7 +86,7 @@ public class TesteVerificadorDePar {
 		VerificacaoDeJogo verificacao = verificadorDePar.verificar(cartas);
 		List<Carta> jogo = Arrays.asList(asEspadas, asCopas, dezPaus, oitoPaus, seisPaus);
 		assertTrue(verificacao.valido());
-		assertEquals(jogo, verificacao.jogo());
+		assertEquals(jogo, verificacao.obterJogo());
 	}
 
 }

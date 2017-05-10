@@ -14,7 +14,7 @@ public class VerificacaoDeJogo {
 		return !jogo.isEmpty();
 	}
 
-	public List<Carta> jogo() {
+	public List<Carta> obterJogo() {
 		return jogo;
 	}
 

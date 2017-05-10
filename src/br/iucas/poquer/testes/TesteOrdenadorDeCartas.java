@@ -10,8 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.iucas.poquer.Carta;
-import br.iucas.poquer.OrdenadorDeListaSuperiorDecrescente;
-import br.iucas.poquer.OrdenadorSuperiorDecrescente;
+import br.iucas.poquer.OrdenadorDeListaDeCartasSuperiorDecrescente;
+import br.iucas.poquer.OrdenadorDeCartasSuperiorDecrescente;
 import br.iucas.poquer.figuracao.FiguracaoCarta;
 
 public class TesteOrdenadorDeCartas {
@@ -20,8 +20,8 @@ public class TesteOrdenadorDeCartas {
 	private Carta asCopas;
 	private Carta reiEspadas;
 	private Carta doisEspadas;
-	private OrdenadorSuperiorDecrescente ordenadorSuperiorDecrescente;
-	private OrdenadorDeListaSuperiorDecrescente ordenadorDeListaSuperiorDecrescente;
+	private OrdenadorDeCartasSuperiorDecrescente ordenadorSuperiorDecrescente;
+	private OrdenadorDeListaDeCartasSuperiorDecrescente ordenadorDeListaSuperiorDecrescente;
 
 	@Before
 	public void configurar() throws Exception {
@@ -30,8 +30,8 @@ public class TesteOrdenadorDeCartas {
 		asCopas = figuracao.asCopas();
 		reiEspadas = figuracao.reiEspadas();
 		doisEspadas = figuracao.doisEspadas();
-		ordenadorSuperiorDecrescente = new OrdenadorSuperiorDecrescente();
-		ordenadorDeListaSuperiorDecrescente = new OrdenadorDeListaSuperiorDecrescente();
+		ordenadorSuperiorDecrescente = new OrdenadorDeCartasSuperiorDecrescente();
+		ordenadorDeListaSuperiorDecrescente = new OrdenadorDeListaDeCartasSuperiorDecrescente();
 	}
 
 	@Test

@@ -5,32 +5,27 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import br.iucas.poquer.testes.AgrupadorDeCartasPorValor;
+import br.iucas.poquer.testes.SeletorDeCartasDeDesempate;
+
 public class VerificadorDeDoisPares implements VerificadorDeJogo {
 
 	@Override
 	public VerificacaoDeJogo verificar(List<Carta> cartas) {
 		cartas = new ArrayList<>(cartas);
-		VerificadorDePar verificadorDePar = new VerificadorDePar();
-		VerificacaoDeJogo verificacaoPrimeiroPar = verificadorDePar.verificar(cartas);
-		if (verificacaoPrimeiroPar.valido()) {
+		List<List<Carta>> agrupamentosComPares = new AgrupadorDeCartasPorValor(cartas).agrupar(2);
+		if (agrupamentosComPares.size() >= 2) {
+			Iterator<List<Carta>> pares = agrupamentosComPares.iterator();
+			List<Carta> par1 = pares.next();
+			List<Carta> par2 = pares.next();
 			List<Carta> jogo = new ArrayList<>(5);
-			Iterator<Carta> par = verificacaoPrimeiroPar.obterJogo().iterator();
-			Carta parItem1 = par.next();
-			Carta parItem2 = par.next();
-			jogo.add(parItem1);
-			jogo.add(parItem2);
-			cartas.remove(parItem1);
-			cartas.remove(parItem2);
-			VerificacaoDeJogo verificacaoSegundoPar = verificadorDePar.verificar(cartas);
-			if (verificacaoSegundoPar.valido()) {
-				Integer contador = 0;
-				Iterator<Carta> desempate = verificacaoSegundoPar.obterJogo().iterator();
-				while (contador < 3 && desempate.hasNext()) {
-					jogo.add(desempate.next());
-					contador++;
-				}
-				return new VerificacaoDeJogo(jogo);
-			}
+			jogo.addAll(par1);
+			jogo.addAll(par2);
+			cartas.removeAll(par1);
+			cartas.removeAll(par2);
+			List<Carta> desempate = new SeletorDeCartasDeDesempate().selecionar(1, cartas);
+			jogo.addAll(desempate);
+			return new VerificacaoDeJogo(jogo);
 		}
 		return new VerificacaoDeJogo(Arrays.asList());
 	}

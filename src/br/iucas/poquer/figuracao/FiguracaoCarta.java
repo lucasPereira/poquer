@@ -20,6 +20,10 @@ public class FiguracaoCarta {
 		return new Carta(figuracaoValor.as(), figuracaoNaipe.copas());
 	}
 
+	public Carta asOuro() {
+		return new Carta(figuracaoValor.as(), figuracaoNaipe.ouro());
+	}
+
 	public Carta reiEspadas() {
 		return new Carta(figuracaoValor.rei(), figuracaoNaipe.espadas());
 	}

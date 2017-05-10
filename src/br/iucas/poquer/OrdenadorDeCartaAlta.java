@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class OrdenadorDeCartasSuperiorDecrescente implements Comparator<Carta> {
+public class OrdenadorDeCartaAlta implements Comparator<Carta> {
 
 	@Override
 	public int compare(Carta carta1, Carta carta2) {

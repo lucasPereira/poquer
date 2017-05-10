@@ -18,6 +18,11 @@ public class Naipe {
 	}
 
 	@Override
+	public int hashCode() {
+		return simbolo.hashCode();
+	}
+
+	@Override
 	public String toString() {
 		return simbolo.toString();
 	}

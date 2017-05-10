@@ -12,6 +12,14 @@ public class FiguracaoValor {
 		return new Valor("K", 13, 13);
 	}
 
+	public Valor dama() {
+		return new Valor("Q", 12, 12);
+	}
+
+	public Valor valete() {
+		return new Valor("J", 11, 11);
+	}
+
 	public Valor dez() {
 		return new Valor("10", 10, 10);
 	}

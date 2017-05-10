@@ -1,6 +1,6 @@
 package br.iucas.poquer.testes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.iucas.poquer.AgrupadorDeCartas;
 import br.iucas.poquer.AgrupadorDeCartasPorValor;
 import br.iucas.poquer.Carta;
 import br.iucas.poquer.figuracao.FiguracaoCarta;
@@ -33,21 +34,21 @@ public class TesteAgrupadorDeCartasPorValor {
 	@Test
 	public void pares() throws Exception {
 		List<Carta> cartas = Arrays.asList(asEspadas, asCopas);
-		AgrupadorDeCartasPorValor agrupador = new AgrupadorDeCartasPorValor(cartas);
+		AgrupadorDeCartas agrupador = new AgrupadorDeCartasPorValor(cartas);
 		assertEquals(Arrays.asList(Arrays.asList(asEspadas, asCopas)), agrupador.agrupar(2));
 	}
 
 	@Test
 	public void doisPares() throws Exception {
 		List<Carta> cartas = Arrays.asList(reiEspadas, reiCopas, asEspadas, asCopas);
-		AgrupadorDeCartasPorValor agrupador = new AgrupadorDeCartasPorValor(cartas);
+		AgrupadorDeCartas agrupador = new AgrupadorDeCartasPorValor(cartas);
 		assertEquals(Arrays.asList(Arrays.asList(asEspadas, asCopas), Arrays.asList(reiEspadas, reiCopas)), agrupador.agrupar(2));
 	}
 
 	@Test
 	public void parTrinca() throws Exception {
 		List<Carta> cartas = Arrays.asList(asPaus, reiEspadas, reiCopas, asEspadas, asCopas);
-		AgrupadorDeCartasPorValor agrupador = new AgrupadorDeCartasPorValor(cartas);
+		AgrupadorDeCartas agrupador = new AgrupadorDeCartasPorValor(cartas);
 		assertEquals(Arrays.asList(Arrays.asList(reiEspadas, reiCopas)), agrupador.agrupar(2));
 		assertEquals(Arrays.asList(Arrays.asList(asEspadas, asPaus, asCopas)), agrupador.agrupar(3));
 	}

@@ -25,9 +25,11 @@ public class TesteNaipe {
 
 	@Test
 	public void naipe() throws Exception {
-		Naipe espadas = new Naipe('*');
+		Character simbolo = '*';
+		Naipe espadas = new Naipe(simbolo);
 		assertEquals("*", espadas.toString());
-		assertEquals(espadas, new Naipe('*'));
+		assertEquals(simbolo.hashCode(), espadas.hashCode());
+		assertEquals(espadas, new Naipe(simbolo));
 	}
 
 	@Test

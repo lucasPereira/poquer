@@ -24,6 +24,10 @@ public class FiguracaoCarta {
 		return new Carta(figuracaoValor.as(), figuracaoNaipe.ouro());
 	}
 
+	public Carta asPaus() {
+		return new Carta(figuracaoValor.as(), figuracaoNaipe.paus());
+	}
+
 	public Carta reiEspadas() {
 		return new Carta(figuracaoValor.rei(), figuracaoNaipe.espadas());
 	}
@@ -36,14 +40,23 @@ public class FiguracaoCarta {
 		return new Carta(figuracaoValor.rei(), figuracaoNaipe.ouro());
 	}
 
-	public Carta asPaus() {
-		return new Carta(figuracaoValor.as(), figuracaoNaipe.paus());
+	public Carta damaEspadas() {
+		return new Carta(figuracaoValor.dama(), figuracaoNaipe.espadas());
+	}
+
+	public Carta valeteEspadas() {
+		return new Carta(figuracaoValor.valete(), figuracaoNaipe.espadas());
 	}
 
 	public Carta dezPaus() {
 		return new Carta(figuracaoValor.dez(), figuracaoNaipe.paus());
 	}
 
+
+	public Carta oitoEspadas() {
+		return new Carta(figuracaoValor.oito(), figuracaoNaipe.espadas());
+	}
+	
 	public Carta oitoPaus() {
 		return new Carta(figuracaoValor.oito(), figuracaoNaipe.paus());
 	}
@@ -59,5 +72,6 @@ public class FiguracaoCarta {
 	public Carta doisCopas() {
 		return new Carta(figuracaoValor.dois(), figuracaoNaipe.copas());
 	}
+
 
 }

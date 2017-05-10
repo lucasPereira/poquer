@@ -1,6 +1,6 @@
 package br.iucas.poquer.testes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,8 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.iucas.poquer.Carta;
-import br.iucas.poquer.OrdenadorDeListaDeCartasSuperiorDecrescente;
-import br.iucas.poquer.OrdenadorDeCartasSuperiorDecrescente;
+import br.iucas.poquer.OrdenadorDeCartaAlta;
+import br.iucas.poquer.OrdenadorDeListaPorCartaAlta;
 import br.iucas.poquer.figuracao.FiguracaoCarta;
 
 public class TesteOrdenadorDeCartas {
@@ -20,8 +20,8 @@ public class TesteOrdenadorDeCartas {
 	private Carta asCopas;
 	private Carta reiEspadas;
 	private Carta doisEspadas;
-	private OrdenadorDeCartasSuperiorDecrescente ordenadorSuperiorDecrescente;
-	private OrdenadorDeListaDeCartasSuperiorDecrescente ordenadorDeListaSuperiorDecrescente;
+	private OrdenadorDeCartaAlta ordenadorDeCartaAlta;
+	private OrdenadorDeListaPorCartaAlta ordenadorDeListaPorCartaAlta;
 
 	@Before
 	public void configurar() throws Exception {
@@ -30,14 +30,14 @@ public class TesteOrdenadorDeCartas {
 		asCopas = figuracao.asCopas();
 		reiEspadas = figuracao.reiEspadas();
 		doisEspadas = figuracao.doisEspadas();
-		ordenadorSuperiorDecrescente = new OrdenadorDeCartasSuperiorDecrescente();
-		ordenadorDeListaSuperiorDecrescente = new OrdenadorDeListaDeCartasSuperiorDecrescente();
+		ordenadorDeCartaAlta = new OrdenadorDeCartaAlta();
+		ordenadorDeListaPorCartaAlta = new OrdenadorDeListaPorCartaAlta();
 	}
 
 	@Test
 	public void ordemSupeiorDecrescente() throws Exception {
 		List<Carta> cartas = Arrays.asList(reiEspadas, doisEspadas, asEspadas);
-		Collections.sort(cartas, ordenadorSuperiorDecrescente);
+		Collections.sort(cartas, ordenadorDeCartaAlta);
 		assertEquals(Arrays.asList(asEspadas, reiEspadas, doisEspadas), cartas);
 	}
 
@@ -46,8 +46,8 @@ public class TesteOrdenadorDeCartas {
 		List<Carta> cartasEspadasAntesDeCopas = Arrays.asList(reiEspadas, doisEspadas, asEspadas, asCopas);
 		List<Carta> cartasCopasAntesDeEspadas = Arrays.asList(reiEspadas, doisEspadas, asCopas, asEspadas);
 		List<Carta> ordenacaoEsperada = Arrays.asList(asEspadas, asCopas, reiEspadas, doisEspadas);
-		ordenadorSuperiorDecrescente.ordenar(cartasEspadasAntesDeCopas);
-		ordenadorSuperiorDecrescente.ordenar(cartasCopasAntesDeEspadas);
+		ordenadorDeCartaAlta.ordenar(cartasEspadasAntesDeCopas);
+		ordenadorDeCartaAlta.ordenar(cartasCopasAntesDeEspadas);
 		assertEquals(ordenacaoEsperada, cartasEspadasAntesDeCopas);
 		assertEquals(ordenacaoEsperada, cartasCopasAntesDeEspadas);
 	}
@@ -57,8 +57,8 @@ public class TesteOrdenadorDeCartas {
 		List<List<Carta>> sequenciasA = Arrays.asList(Arrays.asList(doisEspadas, reiEspadas), Arrays.asList(reiEspadas, doisEspadas, asEspadas));
 		List<List<Carta>> sequenciasB = Arrays.asList(Arrays.asList(reiEspadas, doisEspadas, asEspadas), Arrays.asList(doisEspadas, reiEspadas));
 		List<List<Carta>> sequenciasOrdenadas = Arrays.asList(Arrays.asList(asEspadas, reiEspadas, doisEspadas), Arrays.asList(reiEspadas, doisEspadas));
-		ordenadorDeListaSuperiorDecrescente.ordenar(sequenciasA);
-		ordenadorDeListaSuperiorDecrescente.ordenar(sequenciasB);
+		ordenadorDeListaPorCartaAlta.ordenar(sequenciasA);
+		ordenadorDeListaPorCartaAlta.ordenar(sequenciasB);
 		assertEquals(sequenciasOrdenadas, sequenciasA);
 		assertEquals(sequenciasOrdenadas, sequenciasB);
 	}
@@ -68,8 +68,8 @@ public class TesteOrdenadorDeCartas {
 		List<List<Carta>> sequenciasA = Arrays.asList(Arrays.asList(doisEspadas, reiEspadas), Arrays.asList());
 		List<List<Carta>> sequenciasB = Arrays.asList(Arrays.asList(), Arrays.asList(doisEspadas, reiEspadas));
 		List<List<Carta>> sequenciasOrdenadas = Arrays.asList(Arrays.asList(reiEspadas, doisEspadas), Arrays.asList());
-		ordenadorDeListaSuperiorDecrescente.ordenar(sequenciasA);
-		ordenadorDeListaSuperiorDecrescente.ordenar(sequenciasB);
+		ordenadorDeListaPorCartaAlta.ordenar(sequenciasA);
+		ordenadorDeListaPorCartaAlta.ordenar(sequenciasB);
 		assertEquals(sequenciasOrdenadas, sequenciasA);
 		assertEquals(sequenciasOrdenadas, sequenciasB);
 	}

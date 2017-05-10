@@ -4,12 +4,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class OrdenadorDeListaDeCartasSuperiorDecrescente implements Comparator<List<Carta>> {
+public class OrdenadorDeListaPorCartaAlta implements Comparator<List<Carta>> {
 
-	private OrdenadorDeCartasSuperiorDecrescente ordenador;
+	private OrdenadorDeCartaAlta ordenador;
 
-	public OrdenadorDeListaDeCartasSuperiorDecrescente() {
-		ordenador = new OrdenadorDeCartasSuperiorDecrescente();
+	public OrdenadorDeListaPorCartaAlta() {
+		ordenador = new OrdenadorDeCartaAlta();
 	}
 
 	@Override

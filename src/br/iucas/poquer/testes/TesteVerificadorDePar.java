@@ -31,7 +31,6 @@ public class TesteVerificadorDePar {
 	@Before
 	public void configurar() throws Exception {
 		FiguracaoCarta figuracaoCarta = new FiguracaoCarta();
-		verificadorDePar = new VerificadorDePar();
 		asEspadas = figuracaoCarta.asEspadas();
 		asCopas = figuracaoCarta.asCopas();
 		asPaus = figuracaoCarta.asPaus();
@@ -42,6 +41,7 @@ public class TesteVerificadorDePar {
 		seisPaus = figuracaoCarta.seisPaus();
 		doisEspadas = figuracaoCarta.doisEspadas();
 		doisCopas = figuracaoCarta.doisCopas();
+		verificadorDePar = new VerificadorDePar();
 	}
 
 	@Test

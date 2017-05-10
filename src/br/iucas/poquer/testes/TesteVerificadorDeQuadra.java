@@ -1,6 +1,8 @@
 package br.iucas.poquer.testes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
@@ -9,7 +11,6 @@ import org.junit.Test;
 
 import br.iucas.poquer.Carta;
 import br.iucas.poquer.VerificacaoDeJogo;
-import br.iucas.poquer.VerificadorDeJogo;
 import br.iucas.poquer.VerificadorDeQuadra;
 import br.iucas.poquer.figuracao.FiguracaoCarta;
 
@@ -22,6 +23,7 @@ public class TesteVerificadorDeQuadra {
 	private Carta reiEspadas;
 	private Carta doisEspadas;
 	private Carta doisCopas;
+	private VerificadorDeQuadra verificador;
 
 	@Before
 	public void configurar() throws Exception {
@@ -33,11 +35,11 @@ public class TesteVerificadorDeQuadra {
 		reiEspadas = figuracaoCarta.reiEspadas();
 		doisEspadas = figuracaoCarta.doisEspadas();
 		doisCopas = figuracaoCarta.doisCopas();
+		verificador = new VerificadorDeQuadra();
 	}
 
 	@Test
 	public void quadra() throws Exception {
-		VerificadorDeJogo verificador = new VerificadorDeQuadra();
 		VerificacaoDeJogo verificacao = verificador.verificar(Arrays.asList(asCopas, asOuro, asEspadas, asPaus));
 		assertEquals(Arrays.asList(asEspadas, asPaus, asCopas, asOuro), verificacao.obterJogo());
 		assertTrue(verificacao.valido());
@@ -45,7 +47,6 @@ public class TesteVerificadorDeQuadra {
 
 	@Test
 	public void trinca() throws Exception {
-		VerificadorDeJogo verificador = new VerificadorDeQuadra();
 		VerificacaoDeJogo verificacao = verificador.verificar(Arrays.asList(asCopas, asOuro, asEspadas, reiEspadas));
 		assertEquals(Arrays.asList(), verificacao.obterJogo());
 		assertFalse(verificacao.valido());
@@ -53,7 +54,6 @@ public class TesteVerificadorDeQuadra {
 
 	@Test
 	public void quadraParBaixoCartaAlta() throws Exception {
-		VerificadorDeJogo verificador = new VerificadorDeQuadra();
 		VerificacaoDeJogo verificacao = verificador.verificar(Arrays.asList(asCopas, asOuro, asEspadas, asPaus, doisEspadas, doisCopas, reiEspadas));
 		assertEquals(Arrays.asList(asEspadas, asPaus, asCopas, asOuro, reiEspadas), verificacao.obterJogo());
 		assertTrue(verificacao.valido());

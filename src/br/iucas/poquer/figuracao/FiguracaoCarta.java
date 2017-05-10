@@ -32,6 +32,10 @@ public class FiguracaoCarta {
 		return new Carta(figuracaoValor.rei(), figuracaoNaipe.copas());
 	}
 
+	public Carta reiOuro() {
+		return new Carta(figuracaoValor.rei(), figuracaoNaipe.ouro());
+	}
+
 	public Carta asPaus() {
 		return new Carta(figuracaoValor.as(), figuracaoNaipe.paus());
 	}

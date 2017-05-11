@@ -48,21 +48,40 @@ public class FiguracaoCarta {
 		return new Carta(figuracaoValor.valete(), figuracaoNaipe.espadas());
 	}
 
+	public Carta dezEspadas() {
+		return new Carta(figuracaoValor.dez(), figuracaoNaipe.espadas());
+	}
+
 	public Carta dezPaus() {
 		return new Carta(figuracaoValor.dez(), figuracaoNaipe.paus());
 	}
 
-
 	public Carta oitoEspadas() {
 		return new Carta(figuracaoValor.oito(), figuracaoNaipe.espadas());
 	}
-	
+
+	public Carta novePaus() {
+		return new Carta(figuracaoValor.nove(), figuracaoNaipe.paus());
+	}
+
 	public Carta oitoPaus() {
 		return new Carta(figuracaoValor.oito(), figuracaoNaipe.paus());
 	}
 
 	public Carta seisPaus() {
 		return new Carta(figuracaoValor.seis(), figuracaoNaipe.paus());
+	}
+
+	public Carta cincoPaus() {
+		return new Carta(figuracaoValor.cinco(), figuracaoNaipe.paus());
+	}
+
+	public Carta quatroPaus() {
+		return new Carta(figuracaoValor.quatro(), figuracaoNaipe.paus());
+	}
+
+	public Carta tresPaus() {
+		return new Carta(figuracaoValor.tres(), figuracaoNaipe.paus());
 	}
 
 	public Carta doisEspadas() {
@@ -72,6 +91,5 @@ public class FiguracaoCarta {
 	public Carta doisCopas() {
 		return new Carta(figuracaoValor.dois(), figuracaoNaipe.copas());
 	}
-
 
 }

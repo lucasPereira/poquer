@@ -12,12 +12,16 @@ public class TesteValor {
 
 	private Valor as;
 	private Valor rei;
+	private Valor dama;
+	private Valor dois;
 
 	@Before
 	public void configurar() throws Exception {
 		FiguracaoValor figuracaoValor = new FiguracaoValor();
 		as = figuracaoValor.as();
 		rei = figuracaoValor.rei();
+		dama = figuracaoValor.dama();
+		dois = figuracaoValor.dois();
 	}
 
 	@Test
@@ -39,11 +43,31 @@ public class TesteValor {
 	}
 
 	@Test
-	public void inferiorMenor() throws Exception {
-		assertTrue(as.inferiorMenorQue(rei));
-		assertFalse(rei.inferiorMenorQue(as));
-		assertFalse(as.inferiorMenorQue(as));
-		assertFalse(rei.inferiorMenorQue(rei));
+	public void inferiorMaior() throws Exception {
+		assertFalse(as.inferiorMaiorQue(rei));
+		assertTrue(rei.inferiorMaiorQue(as));
+		assertFalse(as.inferiorMaiorQue(as));
+		assertFalse(rei.inferiorMaiorQue(rei));
+	}
+
+	@Test
+	public void sucessor() throws Exception {
+		assertFalse(as.sucessor(as));
+		assertTrue(as.sucessor(rei));
+		assertFalse(as.sucessor(dama));
+		assertFalse(as.sucessor(dois));
+		assertFalse(rei.sucessor(as));
+		assertFalse(rei.sucessor(rei));
+		assertTrue(rei.sucessor(dama));
+		assertFalse(rei.sucessor(dois));
+		assertFalse(dama.sucessor(as));
+		assertFalse(dama.sucessor(rei));
+		assertFalse(dama.sucessor(dama));
+		assertFalse(dama.sucessor(dois));
+		assertTrue(dois.sucessor(as));
+		assertFalse(dois.sucessor(rei));
+		assertFalse(dois.sucessor(dama));
+		assertFalse(dois.sucessor(dois));
 	}
 
 }

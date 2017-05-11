@@ -16,8 +16,12 @@ public class Valor {
 		return ordemSuperior > valor.ordemSuperior;
 	}
 
-	public Boolean inferiorMenorQue(Valor valor) {
-		return ordemInferior < valor.ordemInferior;
+	public Boolean inferiorMaiorQue(Valor valor) {
+		return ordemInferior > valor.ordemInferior;
+	}
+
+	public Boolean sucessor(Valor carta) {
+		return ordemSuperior - 1 == carta.ordemSuperior || ordemInferior - 1 == carta.ordemInferior;
 	}
 
 	@Override

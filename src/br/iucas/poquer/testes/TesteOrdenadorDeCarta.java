@@ -11,16 +11,18 @@ import org.junit.Test;
 
 import br.iucas.poquer.Carta;
 import br.iucas.poquer.OrdenadorDeCartaAlta;
+import br.iucas.poquer.OrdenadorDeCartaBaixa;
 import br.iucas.poquer.OrdenadorDeListaPorCartaAlta;
 import br.iucas.poquer.figuracao.FiguracaoCarta;
 
-public class TesteOrdenadorDeCartas {
+public class TesteOrdenadorDeCarta {
 
 	private Carta asEspadas;
 	private Carta asCopas;
 	private Carta reiEspadas;
 	private Carta doisEspadas;
 	private OrdenadorDeCartaAlta ordenadorDeCartaAlta;
+	private OrdenadorDeCartaBaixa ordenadorDeCartaBaixa;
 	private OrdenadorDeListaPorCartaAlta ordenadorDeListaPorCartaAlta;
 
 	@Before
@@ -31,18 +33,19 @@ public class TesteOrdenadorDeCartas {
 		reiEspadas = figuracao.reiEspadas();
 		doisEspadas = figuracao.doisEspadas();
 		ordenadorDeCartaAlta = new OrdenadorDeCartaAlta();
+		ordenadorDeCartaBaixa = new OrdenadorDeCartaBaixa();
 		ordenadorDeListaPorCartaAlta = new OrdenadorDeListaPorCartaAlta();
 	}
 
 	@Test
-	public void ordemSupeiorDecrescente() throws Exception {
+	public void ordemAlta() throws Exception {
 		List<Carta> cartas = Arrays.asList(reiEspadas, doisEspadas, asEspadas);
 		Collections.sort(cartas, ordenadorDeCartaAlta);
 		assertEquals(Arrays.asList(asEspadas, reiEspadas, doisEspadas), cartas);
 	}
 
 	@Test
-	public void ordemSupeiorDecrescenteDeValoresIguais() throws Exception {
+	public void ordemAltaComValoresIguais() throws Exception {
 		List<Carta> cartasEspadasAntesDeCopas = Arrays.asList(reiEspadas, doisEspadas, asEspadas, asCopas);
 		List<Carta> cartasCopasAntesDeEspadas = Arrays.asList(reiEspadas, doisEspadas, asCopas, asEspadas);
 		List<Carta> ordenacaoEsperada = Arrays.asList(asEspadas, asCopas, reiEspadas, doisEspadas);
@@ -53,7 +56,7 @@ public class TesteOrdenadorDeCartas {
 	}
 
 	@Test
-	public void ordemDeListasSuperiorDecrescente() throws Exception {
+	public void ordemAltaDeLista() throws Exception {
 		List<List<Carta>> sequenciasA = Arrays.asList(Arrays.asList(doisEspadas, reiEspadas), Arrays.asList(reiEspadas, doisEspadas, asEspadas));
 		List<List<Carta>> sequenciasB = Arrays.asList(Arrays.asList(reiEspadas, doisEspadas, asEspadas), Arrays.asList(doisEspadas, reiEspadas));
 		List<List<Carta>> sequenciasOrdenadas = Arrays.asList(Arrays.asList(asEspadas, reiEspadas, doisEspadas), Arrays.asList(reiEspadas, doisEspadas));
@@ -64,7 +67,7 @@ public class TesteOrdenadorDeCartas {
 	}
 
 	@Test
-	public void ordemDeListasSuperiorDecrescenteComListaVazia() throws Exception {
+	public void ordemDeAltaDeListasComListaVazia() throws Exception {
 		List<List<Carta>> sequenciasA = Arrays.asList(Arrays.asList(doisEspadas, reiEspadas), Arrays.asList());
 		List<List<Carta>> sequenciasB = Arrays.asList(Arrays.asList(), Arrays.asList(doisEspadas, reiEspadas));
 		List<List<Carta>> sequenciasOrdenadas = Arrays.asList(Arrays.asList(reiEspadas, doisEspadas), Arrays.asList());
@@ -72,6 +75,13 @@ public class TesteOrdenadorDeCartas {
 		ordenadorDeListaPorCartaAlta.ordenar(sequenciasB);
 		assertEquals(sequenciasOrdenadas, sequenciasA);
 		assertEquals(sequenciasOrdenadas, sequenciasB);
+	}
+
+	@Test
+	public void ordemBaixa() throws Exception {
+		List<Carta> cartas = Arrays.asList(reiEspadas, doisEspadas, asEspadas);
+		Collections.sort(cartas, ordenadorDeCartaBaixa);
+		assertEquals(Arrays.asList(reiEspadas, doisEspadas, asEspadas), cartas);
 	}
 
 }
